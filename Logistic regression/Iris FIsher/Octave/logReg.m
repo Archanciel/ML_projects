@@ -1,4 +1,9 @@
 D = load('iris_data.txt');
 m = size(D)(1);
-X = [ones(m,1),D(:,1:4)];
-theta = zeros(m,1);
+n = size(D)(2) - 1;
+X = [ones(m,1),D(:,1:n)];
+n = n + 1; 
+y1 = [ones(50, 1); zeros(100,1)];
+y2 = [zeros(50,1); ones(50, 1); zeros(50,1)];
+y3 = [zeros(100, 1); ones(50,1)];
+theta = zeros(n,1);
