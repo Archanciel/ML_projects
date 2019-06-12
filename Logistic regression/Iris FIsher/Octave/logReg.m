@@ -1,11 +1,7 @@
 D = load('iris_data.txt');
 [m,n] = size(D);
-p = 0.70;
-idx = randperm(m); % filling a vector with randomly permuted 1 to m values 
-trainingDataIndexes = idx(1:round(p*m));
-testingDataIndexes = idx(round(p*m) + 1:end);
-TrainingData = D(trainingDataIndexes,:); 
-TestingData = D(testingDataIndexes,:);
+classNb = 3; % Iris Setosa == 1, Iris Versicolour == 2, Iris Virginica == 3
+p = 0.70; % proportion of training data
 
 m = size(D)(1);
 n = size(D)(2) - 1;
