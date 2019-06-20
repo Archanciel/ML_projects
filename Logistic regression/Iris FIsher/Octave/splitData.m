@@ -17,25 +17,26 @@ function [trainingDataCellVector, testingDataCellVector] = splitData(Data, m, yC
         testingDataIndexesY0 = idxY0(round(p*y0RowNb) + 1:end);
         
         % extracting training and testing data
-        TrainingDataY1 = ClassDataY1(trainingDataIndexesY1,:)
-        size(TrainingDataY1)
-        TrainingDataY0 = ClassDataY0(trainingDataIndexesY0,:)
-        size(TrainingDataY0)
-        TestingDataY1 = ClassDataY1(testingDataIndexesY1,:)
-        size(TestingDataY1)
-        TestingDataY0 = ClassDataY0(testingDataIndexesY0,:)
-        size(TestingDataY0)
+        TrainingDataY1 = ClassDataY1(trainingDataIndexesY1,:);
+        TrainingDataY0 = ClassDataY0(trainingDataIndexesY0,:);
+        TestingDataY1 = ClassDataY1(testingDataIndexesY1,:);
+        TestingDataY0 = ClassDataY0(testingDataIndexesY0,:);
         
         % setting y value to 1 or 0
-        TrainingDataY1(:, yColIdx) = 1
-        TrainingDataY0(:, yColIdx) = 0
-        TestingDataY1(:, yColIdx) = 1
-        TestingDataY0(:, yColIdx) = 0
+        TrainingDataY1(:, yColIdx) = 1;
+        TrainingDataY0(:, yColIdx) = 0;
+        TestingDataY1(:, yColIdx) = 1;
+        TestingDataY0(:, yColIdx) = 0;
         
-        trainingDataCellVector{i} = [TrainingDataY1; TrainingDataY0]
-        testingDataCellVector{i} = [TestingDataY1; TestingDataY0]
+        trainingDataCellVector{i} = [TrainingDataY1; TrainingDataY0];
+        testingDataCellVector{i} = [TestingDataY1; TestingDataY0];
     end
     
     % example unpacking the reurned data:
+    % D = load('iris_data.txt');
+    % [m,n] = size(D);
+    % classNb = 3; % Iris Setosa == 1, Iris Versicolour == 2, Iris Virginica == 3
+    % p = 0.70; % proportion of training data
+    % [trainingDataCellVector, testingDataCellVector] = splitData(D, m, 5, p, classNb)
     % cell2mat(trainingDataCellVector(1))
 endfunction
